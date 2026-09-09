@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="lo">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Happy Birthday lanyy 🐷🩷</title>
+<meta name="theme-color" content="#ff7fa8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Pacifico&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans Lao',system-ui,sans-serif;
+  background:#fff7fa;color:#442b35;overflow-x:hidden;
+}
+#hearts{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
+.heart{position:absolute;animation:fall linear forwards;opacity:.8}
+@keyframes fall{0%{transform:translateY(-10vh) rotate(0);opacity:0}10%{opacity:.85}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
+
+.hero{
+  min-height:100svh;display:flex;align-items:center;justify-content:center;
+  padding:28px 18px;position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 20% 20%,#ffdbe7 0 14%,transparent 35%),
+    radial-gradient(circle at 85% 80%,#ffe6ef 0 12%,transparent 35%),
+    linear-gradient(145deg,#fff7fa,#ffeaf1);
+}
+.hero-card{text-align:center;max-width:680px;position:relative;z-index:2}
+.kicker{letter-spacing:4px;text-transform:uppercase;font-size:.75rem;color:#c15b7b;font-weight:700}
+.hero h1{font-family:Pacifico,cursive;font-size:clamp(3.2rem,15vw,7rem);font-weight:400;color:#ef6f99;line-height:1.1;margin:14px 0 5px;text-shadow:0 5px 20px #ef6f9930}
+.hero h2{font-size:clamp(1.15rem,5vw,1.7rem);font-weight:600}
+.subtitle{margin:12px auto 25px;color:#805965}
+.gift{
+  width:96px;height:78px;border:0;border-radius:18px;background:#ef6f99;color:white;
+  font-size:2.2rem;cursor:pointer;box-shadow:0 14px 30px #ef6f9950;
+  transition:.25s;position:relative;margin:5px auto 10px;display:block;
+}
+.gift:hover{transform:translateY(-4px) scale(1.04)}
+.hint{font-size:.8rem;color:#a47a87}
+.opened{display:none;margin-top:20px;color:#e45f8c;font-weight:700;animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+
+section{padding:76px 18px}
+.wrap{max-width:980px;margin:auto}
+.section-label{color:#e46690;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+h3{font-size:clamp(1.8rem,7vw,2.7rem);margin:7px 0 28px}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.photo{overflow:hidden;border-radius:24px;background:#eee;box-shadow:0 12px 35px #6f344012}
+.photo:first-child{grid-row:span 2}
+.photo img{display:block;width:100%;height:100%;object-fit:cover;transition:.5s}
+.photo:hover img{transform:scale(1.04)}
+.photo:first-child{min-height:520px}
+.photo:not(:first-child){min-height:250px}
+
+.letter-section{background:#fff}
+.letter{
+  max-width:760px;margin:auto;background:#fff8fb;border:1px solid #f7dce6;
+  border-radius:30px;padding:32px 24px;box-shadow:0 18px 50px #9e536818;
+}
+.letter-top{text-align:center;font-size:2.5rem;margin-bottom:12px}
+.letter p{font-size:1.02rem;line-height:2.05;color:#684651}
+.lao{margin-top:12px}
+.signature{text-align:right;margin-top:22px;font-weight:700;color:#df6289;font-size:1.05rem}
+
+.timeline{display:grid;gap:15px}
+.memory{display:flex;gap:16px;align-items:flex-start;background:white;padding:18px;border-radius:20px;border:1px solid #f4dfe6}
+.dot{min-width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#ffe0ea;font-size:1.25rem}
+
+.final{
+  min-height:70svh;display:flex;align-items:center;text-align:center;
+  background:linear-gradient(145deg,#ffedf3,#fff8fa)
+}
+.final-inner{max-width:700px;margin:auto}
+.final h3{font-family:Pacifico,cursive;color:#ef6f99;font-weight:400;font-size:clamp(2.4rem,12vw,5rem)}
+.final p{line-height:2;color:#704b57;margin:15px 0 28px}
+.love-btn{
+  border:0;border-radius:999px;padding:15px 27px;background:#ef6f99;color:#fff;
+  font-size:1rem;font-family:inherit;cursor:pointer;box-shadow:0 10px 25px #ef6f9940;
+}
+#loveMsg{min-height:30px;margin-top:15px;color:#e25d87;font-weight:700}
+
+footer{text-align:center;padding:22px;color:#a98791;font-size:.75rem;background:#fff}
+@media(max-width:600px){
+  .photo:first-child{min-height:420px}
+  .photo:not(:first-child){min-height:200px}
+  .letter{padding:25px 19px}
+}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:30}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<canvas id="confetti"></canvas>
+
+<header class="hero">
+  <div class="hero-card">
+    <div class="kicker">A little surprise for you</div>
+    <h1>lanyy 🐷</h1>
+    <h2>Happy Birthday to you, fan 🩷</h2>
+    <p class="subtitle">มีของขวัญเล็ก ๆ ซ่อนอยู่ตรงนี้นะ...</p>
+    <button class="gift" id="giftBtn" aria-label="เปิดของขวัญ">🎁</button>
+    <div class="hint">กดที่กล่องของขวัญเพื่อเปิดเซอร์ไพรส์</div>
+    <div class="opened" id="opened">🎉 Happy Birthday, คนอ้วนของเค้า! 🐷🩷</div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Our little memories</div>
+    <h3>รูปของคนพิเศษ 📸</h3>
+    <div class="photos">
+      <div class="photo"><img src="photo3.jpeg" alt="รูปคู่"></div>
+      <div class="photo"><img src="photo1.jpeg" alt="รูปความทรงจำ"></div>
+      <div class="photo"><img src="photo2.jpeg" alt="รูปความทรงจำ"></div>
+    </div>
+  </div>
+</section>
+
+<section class="letter-section">
+  <div class="wrap">
+    <div class="section-label">A letter for you</div>
+    <h3>ถึง lanyy 🐷</h3>
+    <div class="letter">
+      <div class="letter-top">💌</div>
+      <p><strong>Happy Birthday to you fan 🩷</strong></p>
+      <p class="lao">
+        ຂໍໃຫ້ປະສົບຜົນສຳເລັດທຸກຢ່າງທີ່ເຂົ້າມາໃນຊີວິດ<br>
+        ສຸກຂະພາບແຂງແຮງ ມີຄວາມສຸກຫລາຍໆ<br>
+        ຮັກແຮງແພງຫລາຍ ອ້ວນນ້ອຍຍຍຍ 🎂🐷🩷
+      </p>
+      <div class="signature">— จากคนที่รัก lanyy มาก ๆ 🩷</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-label">Just for you</div>
+    <h3>อยากให้จำไว้นะ 🌷</h3>
+    <div class="timeline">
+      <div class="memory"><div class="dot">🩷</div><div><b>วันนี้เป็นวันของเธอ</b><br>ขอให้มีแต่เรื่องดี ๆ เข้ามา และมีรอยยิ้มเยอะ ๆ</div></div>
+      <div class="memory"><div class="dot">🐷</div><div><b>คนอ้วนของเค้า</b><br>ขอให้กินอิ่ม นอนหลับ และมีความสุขในทุก ๆ วัน</div></div>
+      <div class="memory"><div class="dot">✨</div><div><b>จากนี้ไป</b><br>ไม่ว่าจะเจออะไร ขอให้ผ่านมันไปได้อย่างเก่งที่สุดนะ</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="final-inner">
+    <div class="section-label">One last thing</div>
+    <h3>รักนะ lanyy 🐷🩷</h3>
+    <p>ขอบคุณที่เข้ามาเป็นความน่ารักในชีวิต<br>สุขสันต์วันเกิดนะ ขอให้ปีนี้เป็นปีที่ดีมาก ๆ สำหรับเธอ 🎂</p>
+    <button class="love-btn" id="loveBtn">กดตรงนี้สิ 🩷</button>
+    <div id="loveMsg"></div>
+  </div>
+</section>
+
+<footer>Made with love for lanyy 🐷🩷</footer>
+
+<script>
+const hearts = document.getElementById('hearts');
+const symbols = ['🩷','🤍','💕','✨','🐷'];
+function heart(){
+  const e=document.createElement('span'); e.className='heart';
+  e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+  e.style.left=Math.random()*100+'vw';
+  e.style.fontSize=(12+Math.random()*18)+'px';
+  e.style.animationDuration=(5+Math.random()*7)+'s';
+  hearts.appendChild(e);
+  setTimeout(()=>e.remove(),13000);
+}
+setInterval(heart,700);
+
+const gift=document.getElementById('giftBtn');
+gift.addEventListener('click',()=>{
+  document.getElementById('opened').style.display='block';
+  gift.textContent='🎂';
+  burst();
+  playBirthday();
+});
+
+const loveBtn=document.getElementById('loveBtn');
+loveBtn.addEventListener('click',()=>{
+  document.getElementById('loveMsg').textContent='รักที่สุดเลยนะะะ 🥺🩷🐷';
+  burst();
+});
+
+// Confetti
+const canvas=document.getElementById('confetti'), ctx=canvas.getContext('2d');
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
+addEventListener('resize',resize); resize();
+function burst(){
+  const pieces=[];
+  for(let i=0;i<100;i++) pieces.push({
+    x:innerWidth/2,y:innerHeight*.48,
+    vx:(Math.random()-.5)*12,vy:(Math.random()-.7)*12,
+    s:4+Math.random()*7,r:Math.random()*Math.PI
+  });
+  let t=0;
+  function draw(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    pieces.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;p.vy+=.18;p.r+=.1;
+      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);
+      ctx.fillStyle=['#ff7fa8','#ffd166','#9be7ff','#c7a7ff','#ffb3c7'][Math.floor(Math.random()*5)];
+      ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);ctx.restore();
+    });
+    if(t++<75) requestAnimationFrame(draw); else ctx.clearRect(0,0,canvas.width,canvas.height);
+  }
+  draw();
+}
+
+// Gentle synthesized birthday-style melody; starts only after user interaction.
+function playBirthday(){
+  try{
+    const A=new (window.AudioContext||window.webkitAudioContext)();
+    const notes=[261.63,261.63,293.66,261.63,349.23,329.63,261.63,261.63,293.66,261.63,392,349.23];
+    notes.forEach((f,i)=>{
+      const o=A.createOscillator(), g=A.createGain();
+      o.type='sine';o.frequency.value=f;
+      g.gain.setValueAtTime(0,A.currentTime+i*.28);
+      g.gain.linearRampToValueAtTime(.045,A.currentTime+i*.28+.03);
+      g.gain.exponentialRampToValueAtTime(.001,A.currentTime+i*.28+.24);
+      o.connect(g);g.connect(A.destination);o.start(A.currentTime+i*.28);o.stop(A.currentTime+i*.28+.25);
+    });
+  }catch(e){}
+}
+</script>
+</body>
+</html>
