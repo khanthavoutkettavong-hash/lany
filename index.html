@@ -1,280 +1,129 @@
 <!DOCTYPE html>
-<html lang="lo">
+<html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday lanyy 🐷🩷</title>
-<meta name="theme-color" content="#ff7fa8">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Pacifico&display=swap');
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Noto Sans Thai",sans-serif}
 body{
-  font-family:'Noto Sans Lao',system-ui,sans-serif;
-  background:#fff7fa;color:#442b35;overflow-x:hidden;
+  background:linear-gradient(135deg,#fff0f6,#ffe0ed 45%,#fff7fb);
+  color:#5b3042;overflow-x:hidden
 }
-#hearts{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
-.heart{position:absolute;animation:fall linear forwards;opacity:.8}
-@keyframes fall{0%{transform:translateY(-10vh) rotate(0);opacity:0}10%{opacity:.85}100%{transform:translateY(110vh) rotate(360deg);opacity:0}}
-
-.hero{
-  min-height:100svh;display:flex;align-items:center;justify-content:center;
-  padding:28px 18px;position:relative;overflow:hidden;
-  background:
-    radial-gradient(circle at 20% 20%,#ffdbe7 0 14%,transparent 35%),
-    radial-gradient(circle at 85% 80%,#ffe6ef 0 12%,transparent 35%),
-    linear-gradient(145deg,#fff7fa,#ffeaf1);
+.page{display:none;min-height:100vh;padding:28px 18px;align-items:center;justify-content:center;text-align:center}
+.page.active{display:flex}
+.card{
+  width:min(92vw,700px);padding:30px 22px;border-radius:30px;
+  background:rgba(255,255,255,.78);box-shadow:0 18px 50px rgba(170,70,110,.16);
+  backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.9)
 }
-.hero-card{text-align:center;max-width:680px;position:relative;z-index:2}
-.kicker{letter-spacing:4px;text-transform:uppercase;font-size:.75rem;color:#c15b7b;font-weight:700}
-.hero h1{font-family:Pacifico,cursive;font-size:clamp(3.2rem,15vw,7rem);font-weight:400;color:#ef6f99;line-height:1.1;margin:14px 0 5px;text-shadow:0 5px 20px #ef6f9930}
-.hero h2{font-size:clamp(1.15rem,5vw,1.7rem);font-weight:600}
-.subtitle{margin:12px auto 25px;color:#805965}
-.gift{
-  width:96px;height:78px;border:0;border-radius:18px;background:#ef6f99;color:white;
-  font-size:2.2rem;cursor:pointer;box-shadow:0 14px 30px #ef6f9950;
-  transition:.25s;position:relative;margin:5px auto 10px;display:block;
+h1{margin:0 0 12px;font-size:clamp(30px,8vw,54px);color:#d84f82}
+h2{font-size:clamp(25px,6vw,38px);color:#d84f82;margin:8px 0 18px}
+p{font-size:18px;line-height:1.8;margin:10px 0}
+.small{font-size:15px;opacity:.8}
+.cake{
+  border:0;background:none;font-size:110px;cursor:pointer;
+  animation:bounce 1.8s infinite;filter:drop-shadow(0 12px 10px rgba(180,70,110,.18))
 }
-.gift:hover{transform:translateY(-4px) scale(1.04)}
-.hint{font-size:.8rem;color:#a47a87}
-.opened{display:none;margin-top:20px;color:#e45f8c;font-weight:700;animation:pop .6s ease}
-@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
-
-section{padding:76px 18px}
-.wrap{max-width:980px;margin:auto}
-.section-label{color:#e46690;font-size:.75rem;font-weight:700;letter-spacing:3px;text-transform:uppercase}
-h3{font-size:clamp(1.8rem,7vw,2.7rem);margin:7px 0 28px}
-.photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.photo{overflow:hidden;border-radius:24px;background:#eee;box-shadow:0 12px 35px #6f344012}
-.photo:first-child{grid-row:span 2}
-.photo img{display:block;width:100%;height:100%;object-fit:cover;transition:.5s}
-.photo:hover img{transform:scale(1.04)}
-.photo:first-child{min-height:520px}
-.photo:not(:first-child){min-height:250px}
-
-.letter-section{background:#fff}
-.letter{
-  max-width:760px;margin:auto;background:#fff8fb;border:1px solid #f7dce6;
-  border-radius:30px;padding:32px 24px;box-shadow:0 18px 50px #9e536818;
+@keyframes bounce{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-12px) scale(1.04)}}
+button.next{
+  border:0;border-radius:999px;padding:14px 24px;margin-top:20px;
+  background:#e95d91;color:#fff;font-size:16px;font-weight:700;cursor:pointer;
+  box-shadow:0 8px 20px rgba(220,70,120,.25)
 }
-.letter-top{text-align:center;font-size:2.5rem;margin-bottom:12px}
-.letter p{font-size:1.02rem;line-height:2.05;color:#684651}
-.lao{margin-top:12px}
-.signature{text-align:right;margin-top:22px;font-weight:700;color:#df6289;font-size:1.05rem}
-
-.timeline{display:grid;gap:15px}
-.memory{display:flex;gap:16px;align-items:flex-start;background:white;padding:18px;border-radius:20px;border:1px solid #f4dfe6}
-.dot{min-width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#ffe0ea;font-size:1.25rem}
-
-.final{
-  min-height:70svh;display:flex;align-items:center;text-align:center;
-  background:linear-gradient(145deg,#ffedf3,#fff8fa)
-}
-.final-inner{max-width:700px;margin:auto}
-.final h3{font-family:Pacifico,cursive;color:#ef6f99;font-weight:400;font-size:clamp(2.4rem,12vw,5rem)}
-.final p{line-height:2;color:#704b57;margin:15px 0 28px}
-.love-btn{
-  border:0;border-radius:999px;padding:15px 27px;background:#ef6f99;color:#fff;
-  font-size:1rem;font-family:inherit;cursor:pointer;box-shadow:0 10px 25px #ef6f9940;
-}
-#loveMsg{min-height:30px;margin-top:15px;color:#e25d87;font-weight:700}
-
-footer{text-align:center;padding:22px;color:#a98791;font-size:.75rem;background:#fff}
-@media(max-width:600px){
-  .photo:first-child{min-height:420px}
-  .photo:not(:first-child){min-height:200px}
-  .letter{padding:25px 19px}
-}
-canvas{position:fixed;inset:0;pointer-events:none;z-index:30}
-
-.page{display:none;min-height:100svh;align-items:center;justify-content:center;padding:28px 18px}
-.page.active{display:flex;animation:pageIn .65s ease}
-@keyframes pageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.next-btn{display:none;border:0;border-radius:999px;padding:14px 25px;background:#ef6f99;color:#fff;font-size:1rem;font-family:inherit;cursor:pointer;box-shadow:0 10px 25px #ef6f9940;margin-top:14px}
-.next-btn.show{display:inline-block;animation:pop .55s ease}
-.cake-btn{border:0;background:transparent;font-size:6rem;cursor:pointer;display:block;margin:12px auto;animation:bounce 1.7s infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.surprise{display:none;max-width:650px;margin:20px auto;padding:22px;background:#ffffffc9;border:1px solid #f5d6e1;border-radius:24px;box-shadow:0 15px 35px #9e536815}
-.surprise.show{display:block;animation:pop .6s ease}
-.photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.photo{overflow:hidden;border-radius:24px;background:#eee;box-shadow:0 12px 35px #6f344012}
-.photo:first-child{grid-row:span 2;min-height:520px}
-.photo:not(:first-child){min-height:250px}
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
-.photo-caption{background:#fff;padding:12px 14px;color:#76515d}
-.letter2{max-width:760px;background:#fff;border:1px solid #f7dce6;border-radius:30px;padding:30px 24px;box-shadow:0 18px 50px #9e536818}
-.letter2 p{line-height:2.05;color:#684651}
-@media(max-width:600px){.photo:first-child{min-height:420px}.photo:not(:first-child){min-height:205px}.photos{gap:10px}}
+.message{font-weight:600;color:#63374a}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}
+.photos img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:20px;box-shadow:0 8px 20px rgba(130,50,80,.15)}
+.heart{font-size:48px;margin:4px}
+.final{font-size:22px;font-weight:700;color:#d84f82;line-height:1.7}
+#fx{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:10}
+.particle{position:absolute;font-size:22px;animation:fall 2.8s linear forwards}
+@keyframes fall{0%{transform:translateY(-40px) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(360deg);opacity:0}}
+@media(max-width:520px){.photos{grid-template-columns:1fr}.photos img{aspect-ratio:4/3}.card{padding:26px 17px}p{font-size:17px}}
 </style>
 </head>
 <body>
-<div id="hearts"></div>
-<canvas id="confetti"></canvas>
+<div id="fx"></div>
 
-<!-- 1: หน้าแรก มีแค่เค้กให้กด -->
-<section class="page active hero" id="page1">
-  <div class="hero-card">
-    <div class="kicker">A little surprise for you</div>
-    <h1>lanyy 🐷</h1>
-    <h2>Happy Birthday to you, fan 🩷</h2>
-    <p class="subtitle">มีของขวัญเล็ก ๆ ซ่อนอยู่ตรงนี้นะ...</p>
-    <button class="cake-btn" id="cakeBtn">🎂</button>
-    <div class="hint">กดที่เค้กเพื่อเปิดเซอร์ไพรส์</div>
-
-    <div class="surprise" id="surprise">
-      <h3 style="color:#e45f8c;margin-bottom:8px">🎉 Happy Birthday to you fan 🐷🩷</h3>
-      <p style="line-height:1.9;color:#684651">
-        วันนี้เป็นวันพิเศษของคนพิเศษนะ<br>
-        ขอให้มีแต่รอยยิ้มและเรื่องดี ๆ เข้ามาในชีวิต
-      </p>
-    </div>
-    <button class="next-btn" id="next1">ไปดูต่อกันนะ 🩷 →</button>
-  </div>
-</section>
-
-<!-- 2: หน้ารูป + ข้อความ -->
-<section class="page" id="page2" style="background:linear-gradient(145deg,#fff7fa,#ffedf3)">
-  <div class="wrap" style="width:min(980px,100%);text-align:center">
-    <div class="section-label">Our little memories</div>
-    <h3>รูปของคนพิเศษ 📸</h3>
-    <p style="color:#805965;margin:-15px 0 25px">เก็บช่วงเวลาน่ารัก ๆ ของเราไว้ตรงนี้ 🩷</p>
-
-    <div class="photos" style="text-align:left">
-      <div class="photo">
-        <img src="photo3.jpeg" alt="รูปคู่">
-        <div class="photo-caption"><b>ความทรงจำของเรา 🩷</b><br>ดีใจที่มีเธออยู่ข้าง ๆ</div>
-      </div>
-      <div class="photo">
-        <img src="photo1.jpeg" alt="รูปความทรงจำ">
-        <div class="photo-caption">คนอ้วนของเค้า 🐷</div>
-      </div>
-      <div class="photo">
-        <img src="photo2.jpeg" alt="รูปความทรงจำ">
-        <div class="photo-caption">น่ารักที่สุดเลย 🥺🩷</div>
-      </div>
-    </div>
-
-    <button class="next-btn show" id="next2">อ่านคำอวยพรต่อ 💌 →</button>
-  </div>
-</section>
-
-<!-- 3: คำอวยพร -->
-<section class="page" id="page3" style="background:linear-gradient(145deg,#fff7fa,#ffedf3)">
-  <div class="wrap" style="width:min(800px,100%);text-align:center">
-    <div class="section-label">A letter for you</div>
-    <h3>ถึง lanyy 🐷</h3>
-
-    <div class="letter2">
-      <div style="font-size:2.5rem;margin-bottom:12px">💌</div>
-      <p><strong>Happy Birthday to you fan 🩷</strong></p>
-      <p style="margin-top:12px">
+<section id="page1" class="page active">
+  <div class="card">
+    <div class="heart">🩷</div>
+    <h1>Happy Birthday</h1>
+    <p class="small">ถึง lanyy 🐷</p>
+    <p>มีของขวัญเล็ก ๆ อยากให้กดตรงนี้ 🎁</p>
+    <button class="cake" onclick="openCake()" aria-label="กดเค้ก">🎂</button>
+    <p id="hint" class="small">กดที่เค้กสิ 🥺🩷</p>
+    <div id="wish" style="display:none">
+      <h2>Happy Birthday to you fan 🩷</h2>
+      <p class="message">
         ຂໍໃຫ້ປະສົບຜົນສຳເລັດທຸກຢ່າງທີ່ເຂົ້າມາໃນຊີວິດ<br>
         ສຸກຂະພາບແຂງແຮງ ມີຄວາມສຸກຫລາຍໆ<br>
         ຮັກແຮງແພງຫລາຍ ອ້ວນນ້ອຍຍຍຍ 🎂🐷🩷
       </p>
-      <div style="text-align:right;margin-top:22px;font-weight:700;color:#df6289">
-        — จากคนที่รัก lanyy มาก ๆ 🩷
-      </div>
+      <button class="next" onclick="showPage(2)">ไปดูรูปของเราต่อ 🩷 →</button>
     </div>
-
-    <button class="next-btn show" id="next3">ไปต่อกันอีกนิด ✨ →</button>
   </div>
 </section>
 
-<!-- 4: หน้าสุดท้าย คงสไตล์เดิมไว้ -->
-<section class="page final" id="page4">
-  <div class="final-inner">
-    <div class="section-label">One last thing</div>
+<section id="page2" class="page">
+  <div class="card">
+    <h2>รูปของเราสองคน 🐷🩷</h2>
+    <div class="photos">
+      <img src="photo1.jpeg" alt="รูปความทรงจำ 1">
+      <img src="photo2.jpeg" alt="รูปความทรงจำ 2">
+      <img src="photo3.jpeg" alt="รูปความทรงจำ 3">
+    </div>
+    <p>ขอบคุณสำหรับทุกช่วงเวลาที่มีให้กันนะ 🥺🩷</p>
+    <p class="small">เก็บทุกความทรงจำดี ๆ ไว้ด้วยกันนะ</p>
+    <button class="next" onclick="showPage(3)">ไปต่อกันอีกนิด ✨ →</button>
+  </div>
+</section>
+
+<section id="page3" class="page">
+  <div class="card">
+    <div class="heart">🐷🩷</div>
     <h2>รักนะ lanyy 🐷🩷</h2>
-    <p>
-      ขอบคุณที่เข้ามาเป็นความน่ารักในชีวิต<br>
-      สุขสันต์วันเกิดนะ ขอให้ปีนี้เป็นปีที่ดีมาก ๆ สำหรับเธอ 🎂
-    </p>
-    <button class="love-btn" id="loveBtn">กดตรงนี้สิ 🩷</button>
-    <div id="loveMsg"></div>
+    <p>ขอบคุณที่เข้ามาเป็นความน่ารักในชีวิต</p>
+    <p>สุขสันต์วันเกิดนะ ขอให้ปีนี้เป็นปีที่ดีมาก ๆ สำหรับเธอ 🎂</p>
+    <button class="next" onclick="finalSurprise()">กดตรงนี้สิ 🩷</button>
+    <div id="finalText" style="display:none;margin-top:22px">
+      <div class="final">รักที่สุดเลยนะะะ 🥺🩷🐷</div>
+    </div>
   </div>
 </section>
-
-<footer>Made with love for lanyy 🐷🩷</footer>
 
 <script>
-const hearts=document.getElementById('hearts');
-const symbols=['🩷','🤍','💕','✨','🐷'];
-function heart(){
-  const e=document.createElement('span');
-  e.className='heart';
-  e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
-  e.style.left=Math.random()*100+'vw';
-  e.style.fontSize=(12+Math.random()*18)+'px';
-  e.style.animationDuration=(5+Math.random()*7)+'s';
-  hearts.appendChild(e);
-  setTimeout(()=>e.remove(),13000);
-}
-setInterval(heart,700);
-
-function showPage(id){
+function showPage(n){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  document.getElementById('page'+n).classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
+  burst();
 }
-
-document.getElementById('cakeBtn').onclick=()=>{
-  document.getElementById('surprise').classList.add('show');
-  document.getElementById('next1').classList.add('show');
+function openCake(){
+  document.querySelector('.cake').style.animation='none';
+  document.getElementById('hint').style.display='none';
+  document.getElementById('wish').style.display='block';
   burst();
-  playBirthday();
-};
-document.getElementById('next1').onclick=()=>showPage('page2');
-document.getElementById('next2').onclick=()=>showPage('page3');
-document.getElementById('next3').onclick=()=>showPage('page4');
-
-document.getElementById('loveBtn').onclick=()=>{
-  document.getElementById('loveMsg').textContent='รักที่สุดเลยนะะะ 🥺🩷🐷';
-  burst();
-};
-
-const canvas=document.getElementById('confetti');
-const ctx=canvas.getContext('2d');
-function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
-addEventListener('resize',resize);resize();
-
-function burst(){
-  const pieces=[];
-  for(let i=0;i<100;i++)pieces.push({
-    x:innerWidth/2,y:innerHeight*.48,
-    vx:(Math.random()-.5)*12,vy:(Math.random()-.7)*12,
-    s:4+Math.random()*7,r:Math.random()*Math.PI
-  });
-  let t=0;
-  function draw(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    pieces.forEach(p=>{
-      p.x+=p.vx;p.y+=p.vy;p.vy+=.18;p.r+=.1;
-      ctx.save();ctx.translate(p.x,p.y);ctx.rotate(p.r);
-      ctx.fillStyle=['#ff7fa8','#ffd166','#9be7ff','#c7a7ff','#ffb3c7'][Math.floor(Math.random()*5)];
-      ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);ctx.restore();
-    });
-    if(t++<75)requestAnimationFrame(draw);
-    else ctx.clearRect(0,0,canvas.width,canvas.height);
+}
+function finalSurprise(){
+  document.getElementById('finalText').style.display='block';
+  burst(40);
+}
+function burst(count=24){
+  const fx=document.getElementById('fx');
+  const chars=['🩷','💗','💕','✨','🐷','🎂'];
+  for(let i=0;i<count;i++){
+    const s=document.createElement('span');
+    s.className='particle';
+    s.textContent=chars[Math.floor(Math.random()*chars.length)];
+    s.style.left=Math.random()*100+'vw';
+    s.style.top=(-Math.random()*20-5)+'vh';
+    s.style.animationDuration=(1.8+Math.random()*2)+'s';
+    s.style.fontSize=(16+Math.random()*18)+'px';
+    fx.appendChild(s);
+    setTimeout(()=>s.remove(),4500);
   }
-  draw();
-}
-
-function playBirthday(){
-  try{
-    const A=new(window.AudioContext||window.webkitAudioContext)();
-    const notes=[261.63,261.63,293.66,261.63,349.23,329.63,261.63,261.63,293.66,261.63,392,349.23];
-    notes.forEach((f,i)=>{
-      const o=A.createOscillator(),g=A.createGain();
-      o.type='sine';o.frequency.value=f;
-      g.gain.setValueAtTime(0,A.currentTime+i*.28);
-      g.gain.linearRampToValueAtTime(.045,A.currentTime+i*.28+.03);
-      g.gain.exponentialRampToValueAtTime(.001,A.currentTime+i*.28+.24);
-      o.connect(g);g.connect(A.destination);
-      o.start(A.currentTime+i*.28);o.stop(A.currentTime+i*.28+.25);
-    });
-  }catch(e){}
 }
 </script>
 </body>
