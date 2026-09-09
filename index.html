@@ -1,36 +1,22 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="lo">
 <head>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&display=swap" rel="stylesheet">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday lanyy 🐷🩷</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Lao:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  @font-face {
-    font-family: 'Lao_Khunlor';
-    src: url('Lao_Khunlor.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* ใช้ Lao_Khunlor กับข้อความ */
-body {
-    font-family: 'Lao_Khunlor', sans-serif;
-}
-
-/* ห้ามบังคับฟอนต์กับ emoji */
-.cake,
-.heart,
-.particle {
-    font-family: system-ui, sans-serif;
-}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:"Noto Sans Lao","Noto Sans Thai",system-ui,sans-serif}
 body{
   background:linear-gradient(135deg,#fff0f6,#ffe0ed 45%,#fff7fb);
   color:#5b3042;overflow-x:hidden
+}
+/* บังคับให้ปุ่มกดใช้ฟอนต์เดียวกันกับ body */
+button {
+  font-family: inherit;
 }
 .page{display:none;min-height:100vh;padding:28px 18px;align-items:center;justify-content:center;text-align:center}
 .page.active{display:flex}
@@ -82,7 +68,7 @@ button.next{
         ສຸກຂະພາບແຂງແຮງ ມີຄວາມສຸກຫລາຍໆ<br>
         ຮັກແຮງແພງຫລາຍ ອ້ວນນ້ອຍຍຍຍ 🎂🐷🩷
       </p>
-      <button class="next" onclick="showPage(2)">ໄປດູໜ້າຕໍ່ໄປກັນນນນ 🩷 →</button>
+      <button class="next" onclick="showPage(2)">ໄປເບິ່ງໜ້າຕໍ່ໄປກັນນນນ 🩷 →</button>
     </div>
   </div>
 </section>
@@ -95,8 +81,8 @@ button.next{
       <img src="photo2.jpeg" alt="รูปความทรงจำ 2">
       <img src="photo3.jpeg" alt="รูปความทรงจำ 3">
     </div>
-    <p>ມີແຄ່ນີ້ອະ🥺 ດ໋ຽງມາໄປຖ່າຍດ໋ຽວກັນເຢິໆນະໝູອ້ວນນນນນນສົບງໍ 🥺🩷</p>
-    <p class="small">เເກັບຄວາມຊົງຈຳດີໆ ໄວ້ດ້ວຍກັນນະະະະ</p>
+    <p>ມີແຄ່ນີ້ອະ🥺 ດຽວມາໄປຖ່າຍດ๋ຽວກັນເຢິໆນະໝູອ້ວນນນນນນສົບງໍ 🥺🩷</p>
+    <p class="small">ເກັບຄວາມຊົງຈຳດີໆ ໄວ້ດ້ວຍກັນນະະະະ</p>
     <button class="next" onclick="showPage(3)">ໄປຕໍ່ກັນອີກນິດດດ ✨ →</button>
   </div>
 </section>
@@ -104,10 +90,10 @@ button.next{
 <section id="page3" class="page">
   <div class="card">
     <div class="heart">🐷🩷</div>
-    <h2>ລັກນະ lanyy 🐷🩷</h2>
-    <p>ຂອບໃຈທີ່ເຂົ້າມາເປັນຄວາມໜ້າລັກສົບງໍຫນາາາາາາາາາ</p>
+    <h2>ຮັກນະ lanyy 🐷🩷</h2>
+    <p>ຂອບໃຈທີ່ເຂົ້າມາເປັນຄວາມໜ້າຮັກສົບງໍຫນາາາາາາາາາ</p>
     <p>ສຸກສັນວັນເກີດນະ ຂໍໃຫ້ເປັນປີທີ່ດີຫຼາຍໆ ສຳຫຼັບເຈົ້າ 🎂</p>
-    <button class="next" onclick="finalSurprise()">ກົດຕົງນີ້ 🩷</button>
+    <button class="next" onclick="finalSurprise()">ກົດບ່ອນນີ້ 🩷</button>
     <div id="finalText" style="display:none;margin-top:22px">
       <div class="final">ຮັກອ້ວນທີ່ສຸດເລີຍນະະະະະະ 🥺🩷🐷</div>
     </div>
