@@ -87,70 +87,110 @@ footer{text-align:center;padding:22px;color:#a98791;font-size:.75rem;background:
   .letter{padding:25px 19px}
 }
 canvas{position:fixed;inset:0;pointer-events:none;z-index:30}
+
+.page{display:none;min-height:100svh;align-items:center;justify-content:center;padding:28px 18px}
+.page.active{display:flex;animation:pageIn .65s ease}
+@keyframes pageIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.next-btn{display:none;border:0;border-radius:999px;padding:14px 25px;background:#ef6f99;color:#fff;font-size:1rem;font-family:inherit;cursor:pointer;box-shadow:0 10px 25px #ef6f9940;margin-top:14px}
+.next-btn.show{display:inline-block;animation:pop .55s ease}
+.cake-btn{border:0;background:transparent;font-size:6rem;cursor:pointer;display:block;margin:12px auto;animation:bounce 1.7s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.surprise{display:none;max-width:650px;margin:20px auto;padding:22px;background:#ffffffc9;border:1px solid #f5d6e1;border-radius:24px;box-shadow:0 15px 35px #9e536815}
+.surprise.show{display:block;animation:pop .6s ease}
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.photo{overflow:hidden;border-radius:24px;background:#eee;box-shadow:0 12px 35px #6f344012}
+.photo:first-child{grid-row:span 2;min-height:520px}
+.photo:not(:first-child){min-height:250px}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-caption{background:#fff;padding:12px 14px;color:#76515d}
+.letter2{max-width:760px;background:#fff;border:1px solid #f7dce6;border-radius:30px;padding:30px 24px;box-shadow:0 18px 50px #9e536818}
+.letter2 p{line-height:2.05;color:#684651}
+@media(max-width:600px){.photo:first-child{min-height:420px}.photo:not(:first-child){min-height:205px}.photos{gap:10px}}
 </style>
 </head>
 <body>
 <div id="hearts"></div>
 <canvas id="confetti"></canvas>
 
-<header class="hero">
+<!-- 1: หน้าแรก มีแค่เค้กให้กด -->
+<section class="page active hero" id="page1">
   <div class="hero-card">
     <div class="kicker">A little surprise for you</div>
     <h1>lanyy 🐷</h1>
     <h2>Happy Birthday to you, fan 🩷</h2>
     <p class="subtitle">มีของขวัญเล็ก ๆ ซ่อนอยู่ตรงนี้นะ...</p>
-    <button class="gift" id="giftBtn" aria-label="เปิดของขวัญ">🎁</button>
-    <div class="hint">กดที่กล่องของขวัญเพื่อเปิดเซอร์ไพรส์</div>
-    <div class="opened" id="opened">🎉 Happy Birthday, คนอ้วนของเค้า! 🐷🩷</div>
-  </div>
-</header>
+    <button class="cake-btn" id="cakeBtn">🎂</button>
+    <div class="hint">กดที่เค้กเพื่อเปิดเซอร์ไพรส์</div>
 
-<section>
-  <div class="wrap">
-    <div class="section-label">Our little memories</div>
-    <h3>รูปของคนพิเศษ 📸</h3>
-    <div class="photos">
-      <div class="photo"><img src="photo3.jpeg" alt="รูปคู่"></div>
-      <div class="photo"><img src="photo1.jpeg" alt="รูปความทรงจำ"></div>
-      <div class="photo"><img src="photo2.jpeg" alt="รูปความทรงจำ"></div>
+    <div class="surprise" id="surprise">
+      <h3 style="color:#e45f8c;margin-bottom:8px">🎉 Happy Birthday to you fan 🐷🩷</h3>
+      <p style="line-height:1.9;color:#684651">
+        วันนี้เป็นวันพิเศษของคนพิเศษนะ<br>
+        ขอให้มีแต่รอยยิ้มและเรื่องดี ๆ เข้ามาในชีวิต
+      </p>
     </div>
+    <button class="next-btn" id="next1">ไปดูต่อกันนะ 🩷 →</button>
   </div>
 </section>
 
-<section class="letter-section">
-  <div class="wrap">
+<!-- 2: หน้ารูป + ข้อความ -->
+<section class="page" id="page2" style="background:linear-gradient(145deg,#fff7fa,#ffedf3)">
+  <div class="wrap" style="width:min(980px,100%);text-align:center">
+    <div class="section-label">Our little memories</div>
+    <h3>รูปของคนพิเศษ 📸</h3>
+    <p style="color:#805965;margin:-15px 0 25px">เก็บช่วงเวลาน่ารัก ๆ ของเราไว้ตรงนี้ 🩷</p>
+
+    <div class="photos" style="text-align:left">
+      <div class="photo">
+        <img src="photo3.jpeg" alt="รูปคู่">
+        <div class="photo-caption"><b>ความทรงจำของเรา 🩷</b><br>ดีใจที่มีเธออยู่ข้าง ๆ</div>
+      </div>
+      <div class="photo">
+        <img src="photo1.jpeg" alt="รูปความทรงจำ">
+        <div class="photo-caption">คนอ้วนของเค้า 🐷</div>
+      </div>
+      <div class="photo">
+        <img src="photo2.jpeg" alt="รูปความทรงจำ">
+        <div class="photo-caption">น่ารักที่สุดเลย 🥺🩷</div>
+      </div>
+    </div>
+
+    <button class="next-btn show" id="next2">อ่านคำอวยพรต่อ 💌 →</button>
+  </div>
+</section>
+
+<!-- 3: คำอวยพร -->
+<section class="page" id="page3" style="background:linear-gradient(145deg,#fff7fa,#ffedf3)">
+  <div class="wrap" style="width:min(800px,100%);text-align:center">
     <div class="section-label">A letter for you</div>
     <h3>ถึง lanyy 🐷</h3>
-    <div class="letter">
-      <div class="letter-top">💌</div>
+
+    <div class="letter2">
+      <div style="font-size:2.5rem;margin-bottom:12px">💌</div>
       <p><strong>Happy Birthday to you fan 🩷</strong></p>
-      <p class="lao">
+      <p style="margin-top:12px">
         ຂໍໃຫ້ປະສົບຜົນສຳເລັດທຸກຢ່າງທີ່ເຂົ້າມາໃນຊີວິດ<br>
         ສຸກຂະພາບແຂງແຮງ ມີຄວາມສຸກຫລາຍໆ<br>
         ຮັກແຮງແພງຫລາຍ ອ້ວນນ້ອຍຍຍຍ 🎂🐷🩷
       </p>
-      <div class="signature">— จากคนที่รัก lanyy มาก ๆ 🩷</div>
+      <div style="text-align:right;margin-top:22px;font-weight:700;color:#df6289">
+        — จากคนที่รัก lanyy มาก ๆ 🩷
+      </div>
     </div>
+
+    <button class="next-btn show" id="next3">ไปต่อกันอีกนิด ✨ →</button>
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-label">Just for you</div>
-    <h3>อยากให้จำไว้นะ 🌷</h3>
-    <div class="timeline">
-      <div class="memory"><div class="dot">🩷</div><div><b>วันนี้เป็นวันของเธอ</b><br>ขอให้มีแต่เรื่องดี ๆ เข้ามา และมีรอยยิ้มเยอะ ๆ</div></div>
-      <div class="memory"><div class="dot">🐷</div><div><b>คนอ้วนของเค้า</b><br>ขอให้กินอิ่ม นอนหลับ และมีความสุขในทุก ๆ วัน</div></div>
-      <div class="memory"><div class="dot">✨</div><div><b>จากนี้ไป</b><br>ไม่ว่าจะเจออะไร ขอให้ผ่านมันไปได้อย่างเก่งที่สุดนะ</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="final">
+<!-- 4: หน้าสุดท้าย คงสไตล์เดิมไว้ -->
+<section class="page final" id="page4">
   <div class="final-inner">
     <div class="section-label">One last thing</div>
-    <h3>รักนะ lanyy 🐷🩷</h3>
-    <p>ขอบคุณที่เข้ามาเป็นความน่ารักในชีวิต<br>สุขสันต์วันเกิดนะ ขอให้ปีนี้เป็นปีที่ดีมาก ๆ สำหรับเธอ 🎂</p>
+    <h2>รักนะ lanyy 🐷🩷</h2>
+    <p>
+      ขอบคุณที่เข้ามาเป็นความน่ารักในชีวิต<br>
+      สุขสันต์วันเกิดนะ ขอให้ปีนี้เป็นปีที่ดีมาก ๆ สำหรับเธอ 🎂
+    </p>
     <button class="love-btn" id="loveBtn">กดตรงนี้สิ 🩷</button>
     <div id="loveMsg"></div>
   </div>
@@ -159,10 +199,11 @@ canvas{position:fixed;inset:0;pointer-events:none;z-index:30}
 <footer>Made with love for lanyy 🐷🩷</footer>
 
 <script>
-const hearts = document.getElementById('hearts');
-const symbols = ['🩷','🤍','💕','✨','🐷'];
+const hearts=document.getElementById('hearts');
+const symbols=['🩷','🤍','💕','✨','🐷'];
 function heart(){
-  const e=document.createElement('span'); e.className='heart';
+  const e=document.createElement('span');
+  e.className='heart';
   e.textContent=symbols[Math.floor(Math.random()*symbols.length)];
   e.style.left=Math.random()*100+'vw';
   e.style.fontSize=(12+Math.random()*18)+'px';
@@ -172,27 +213,35 @@ function heart(){
 }
 setInterval(heart,700);
 
-const gift=document.getElementById('giftBtn');
-gift.addEventListener('click',()=>{
-  document.getElementById('opened').style.display='block';
-  gift.textContent='🎂';
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+document.getElementById('cakeBtn').onclick=()=>{
+  document.getElementById('surprise').classList.add('show');
+  document.getElementById('next1').classList.add('show');
   burst();
   playBirthday();
-});
+};
+document.getElementById('next1').onclick=()=>showPage('page2');
+document.getElementById('next2').onclick=()=>showPage('page3');
+document.getElementById('next3').onclick=()=>showPage('page4');
 
-const loveBtn=document.getElementById('loveBtn');
-loveBtn.addEventListener('click',()=>{
+document.getElementById('loveBtn').onclick=()=>{
   document.getElementById('loveMsg').textContent='รักที่สุดเลยนะะะ 🥺🩷🐷';
   burst();
-});
+};
 
-// Confetti
-const canvas=document.getElementById('confetti'), ctx=canvas.getContext('2d');
+const canvas=document.getElementById('confetti');
+const ctx=canvas.getContext('2d');
 function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
-addEventListener('resize',resize); resize();
+addEventListener('resize',resize);resize();
+
 function burst(){
   const pieces=[];
-  for(let i=0;i<100;i++) pieces.push({
+  for(let i=0;i<100;i++)pieces.push({
     x:innerWidth/2,y:innerHeight*.48,
     vx:(Math.random()-.5)*12,vy:(Math.random()-.7)*12,
     s:4+Math.random()*7,r:Math.random()*Math.PI
@@ -206,23 +255,24 @@ function burst(){
       ctx.fillStyle=['#ff7fa8','#ffd166','#9be7ff','#c7a7ff','#ffb3c7'][Math.floor(Math.random()*5)];
       ctx.fillRect(-p.s/2,-p.s/2,p.s,p.s);ctx.restore();
     });
-    if(t++<75) requestAnimationFrame(draw); else ctx.clearRect(0,0,canvas.width,canvas.height);
+    if(t++<75)requestAnimationFrame(draw);
+    else ctx.clearRect(0,0,canvas.width,canvas.height);
   }
   draw();
 }
 
-// Gentle synthesized birthday-style melody; starts only after user interaction.
 function playBirthday(){
   try{
-    const A=new (window.AudioContext||window.webkitAudioContext)();
+    const A=new(window.AudioContext||window.webkitAudioContext)();
     const notes=[261.63,261.63,293.66,261.63,349.23,329.63,261.63,261.63,293.66,261.63,392,349.23];
     notes.forEach((f,i)=>{
-      const o=A.createOscillator(), g=A.createGain();
+      const o=A.createOscillator(),g=A.createGain();
       o.type='sine';o.frequency.value=f;
       g.gain.setValueAtTime(0,A.currentTime+i*.28);
       g.gain.linearRampToValueAtTime(.045,A.currentTime+i*.28+.03);
       g.gain.exponentialRampToValueAtTime(.001,A.currentTime+i*.28+.24);
-      o.connect(g);g.connect(A.destination);o.start(A.currentTime+i*.28);o.stop(A.currentTime+i*.28+.25);
+      o.connect(g);g.connect(A.destination);
+      o.start(A.currentTime+i*.28);o.stop(A.currentTime+i*.28+.25);
     });
   }catch(e){}
 }
